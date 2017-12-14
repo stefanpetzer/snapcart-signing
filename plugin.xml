@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="snapcart-signing" version="0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>Signing</name>
+  <description>Snapcart Signing</description>
+
+  <js-module src="www/signing.js" name="Signing">
+    <clobbers target="Signing" />
+  </js-module>
+
+  <engines>
+    <engine name="cordova" version=">=4.0.0" />
+  </engines>
+  <platform name="android">
+    <config-file parent="/*" target="res/xml/config.xml">
+      <feature name="SnapcartSigning">
+        <param name="android-package" value="co.za.snapcart.signing.SnapcartSigningPlugin" />
+      </feature>
+    </config-file>
+
+
+
+    <source-file src="libs/impressionplugin.jar" target-dir="libs" />
+    <source-file src="jniLibs/armeabi/libdlpdfviewer-jni.so" target-dir="jniLibs/armeabi" />
+    <source-file src="jniLibs/armeabi/libimpression_signature-jni.so" target-dir="jniLibs/armeabi" />
+    <source-file src="jniLibs/armeabi-v7a/libdlpdfviewer-jni.so" target-dir="jniLibs/armeabi-v7a" />
+    <source-file src="jniLibs/armeabi-v7a/libimpression_signature-jni.so" target-dir="jniLibs/armeabi-v7a" />
+    <framework src="src/android/extras.gradle" custom="true" type="gradleReference" />
+
+    <source-file src="src/android/SnapcartSigningPlugin.java"
+          target-dir="src/co/za/snapcart/signing" />
+    <source-file src="src/android/ImpressionActivity.java"
+          target-dir="src/co/za/snapcart/signing" />
+
+    <source-file src="res/values/impressions_strings.xml" target-dir="res/values" />
+    <source-file src="res/drawable/impression_small.png" target-dir="res/drawable" />
+
+    <source-file src="res/drawable-hdpi/ic_add_white_24dp.png" target-dir="res/drawable-hdpi" />
+    <source-file src="res/drawable-hdpi/ic_check.png" target-dir="res/drawable-hdpi" />
+    <source-file src="res/drawable-hdpi/ic_close.png" target-dir="res/drawable-hdpi" />
+    <source-file src="res/drawable-hdpi/ic_launcher.png" target-dir="res/drawable-hdpi" />
+
+
+    <source-file src="res/drawable-xhdpi/ic_add_white_24dp.png" target-dir="res/drawable-xhdpi" />
+    <source-file src="res/drawable-xhdpi/ic_check.png" target-dir="res/drawable-xhdpi" />
+    <source-file src="res/drawable-xhdpi/ic_close.png" target-dir="res/drawable-xhdpi" />
+    <source-file src="res/drawable-xhdpi/ic_launcher.png" target-dir="res/drawable-xhdpi" />
+
+
+    <source-file src="res/drawable-xxhdpi/ic_add_white_24dp.png" target-dir="res/drawable-xxhdpi" />
+    <source-file src="res/drawable-xxhdpi/ic_check.png" target-dir="res/drawable-xxhdpi" />
+    <source-file src="res/drawable-xxhdpi/ic_close.png" target-dir="res/drawable-xxhdpi" />
+
+
+    <source-file src="res/drawable-xxxhdpi/ic_add_white_24dp.png" target-dir="res/drawable-xxxhdpi" />
+    <source-file src="res/drawable-xxxhdpi/ic_check.png" target-dir="res/drawable-xxxhdpi" />
+    <source-file src="res/drawable-xxxhdpi/ic_close.png" target-dir="res/drawable-xxxhdpi" />
+
+    <source-file src="res/drawable-land-xhdpi/screen.png" target-dir="res/drawable-land-xhdpi" />
+    <source-file src="res/drawable-land-hdpi/screen.png" target-dir="res/drawable-land-hdpi" />
+    <source-file src="res/drawable-land-ldpi/screen.png" target-dir="res/drawable-land-ldpi" />
+    <source-file src="res/drawable-land-mdpi/screen.png" target-dir="res/drawable-land-mdpi" />
+
+
+    <source-file src="res/drawable-port-xhdpi/screen.png" target-dir="res/drawable-port-xhdpi" />
+    <source-file src="res/drawable-port-hdpi/screen.png" target-dir="res/drawable-port-hdpi" />
+    <source-file src="res/drawable-port-ldpi/screen.png" target-dir="res/drawable-port-ldpi" />
+    <source-file src="res/drawable-port-mdpi/screen.png" target-dir="res/drawable-port-mdpi" />
+
+    <source-file src="res/drawable-ldpi/ic_check.png" target-dir="res/drawable-ldpi" />
+    <source-file src="res/drawable-ldpi/ic_close.png" target-dir="res/drawable-ldpi" />
+
+
+    <source-file src="res/drawable-mdpi/ic_add_white_24dp.png" target-dir="res/drawable-mdpi" />
+    <source-file src="res/drawable-mdpi/ic_check.png" target-dir="res/drawable-mdpi" />
+    <source-file src="res/drawable-mdpi/ic_close.png" target-dir="res/drawable-mdpi" />
+    <source-file src="res/drawable-mdpi/ic_launcher.png" target-dir="res/drawable-mdpi" />
+
+    <source-file src="res/layout/activity_impression.xml" target-dir="res/layout" />
+
+  </platform>
+
+  <config-file target="AndroidManifest.xml" parent="/manifest/application">
+    <activity
+        android:name="co.za.snapcart.signing.ImpressionActivity"
+        android:label="@string/title_activity_impression" >
+    </activity>
+
+  </config-file>
+  <config-file target="AndroidManifest.xml" parent="/manifest">
+    
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+  </config-file>
+</plugin>
