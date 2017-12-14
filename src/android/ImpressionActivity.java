@@ -30,7 +30,7 @@ import android.content.Intent;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 
-import {{appId}}.R;
+import za.co.unilever.snapcart.R;
 
 
 import za.co.impression.ReadFragment;
